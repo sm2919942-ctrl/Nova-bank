@@ -8,6 +8,7 @@ import com.novabank.backend.dto.ApiResponse;
 import com.novabank.backend.dto.LoginRequest;
 import com.novabank.backend.dto.LoginResponse;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import com.novabank.backend.entity.Role;
 
 
     @Service
@@ -58,6 +59,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
             user.setBalance(0.0);
 
             repository.save(user);
+
+            user.setRole(Role.USER);
             return new ApiResponse(true, "Registration Successful");
         }
 

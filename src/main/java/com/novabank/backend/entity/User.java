@@ -2,6 +2,7 @@ package com.novabank.backend.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import com.novabank.backend.entity.Role;
 
     @Entity
     @Table(name = "users")
@@ -41,6 +42,8 @@ import lombok.*;
         private String ifscCode;
         private String accountStatus;
         private String createdAt;
+        @Enumerated(EnumType.STRING)
+        private Role role = Role.USER;
     }
 
 
